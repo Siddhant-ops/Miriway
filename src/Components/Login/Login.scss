@@ -1,0 +1,36 @@
+$bg: #1e232c;
+
+.login {
+  background: $bg;
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  padding: 2.5rem 2rem;
+  color: #ffffff;
+
+  form {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
+    input {
+      background-color: rgba($color: #ffffff, $alpha: 0.05);
+      caret-color: #ffffff;
+      outline: none;
+      border: none;
+      font-size: 1rem;
+      width: 100%;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0.53rem;
+      -webkit-border-radius: 0.53rem;
+      -moz-border-radius: 0.53rem;
+      -ms-border-radius: 0.53rem;
+      -o-border-radius: 0.53rem;
+    }
+  }
+}
