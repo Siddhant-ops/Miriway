@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import "./Login.scss";
 import Logo from "../../Assets/Images/Miriway-small.svg";
 import SigninImage from "../../Assets/Images/Sign-In.png";
-import { Link } from "react-router-dom";
-import firebase from "firebase";
+import { Link, useHistory } from "react-router-dom";
 import { auth } from "../../Firebase-services/firebase-main";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
 
   const emailChange = (e) => {
     setEmail(e.target.value);
@@ -19,9 +19,14 @@ const Login = () => {
   };
 
   const authLogin = () => {
-    auth()
+    auth
       .signInWithEmailAndPassword(email, password)
-      .catch((err) => console.log(err));
+      .then((user) => {
+        if (user) {
+          history.push("/done");
+        }
+      })
+      .catch((err) => console.log("err", err));
   };
 
   return (

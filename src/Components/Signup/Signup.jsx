@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { auth } from "../../Firebase-services/firebase-main";
 import Logo from "../../Assets/Images/Miriway-small.svg";
 import "./Signup.scss";
 
@@ -45,60 +46,92 @@ const Signup = () => {
     }
   };
 
+  var disableButton =
+    name === "" ||
+    email === "" ||
+    password === "" ||
+    Area === "" ||
+    city === "" ||
+    areaState === "" ||
+    role === "" ||
+    rate === "";
+
+  const authSignup = () => {
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="signup">
       <img src={Logo} alt="" />
       <h2>Sign Up To Miriway</h2>
-      <form method="post">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          authSignup();
+        }}
+      >
         <input
           type="text"
           onChange={inputChange}
           name="name"
+          value={name}
           placeholder="Your Name"
         />
         <input
           onChange={inputChange}
-          type="text"
+          type="email"
           name="Email"
+          value={email}
           placeholder="Your E-mail"
         />
         <input
           type="password"
           onChange={inputChange}
           name="password"
+          value={password}
           placeholder="Password"
         />
         <input
           onChange={inputChange}
           type="text"
           name="area"
+          value={Area}
           placeholder="Enter your Area"
         />
         <input
           type="text"
           onChange={inputChange}
           name="city"
+          value={city}
           placeholder="Enter your City"
         />
         <input
           onChange={inputChange}
           type="text"
           name="state"
+          value={areaState}
           placeholder="Enter your State"
         />
         <input
           type="text"
           onChange={inputChange}
           name="role"
+          value={role}
           placeholder="Driver or Shop"
         />
         <input
           onChange={inputChange}
           type="text"
           name="rate"
-          placeholder="Price/km"
+          value={rate}
+          placeholder="Price / km"
         />
-        <button className="primary__btn">Sign Up</button>
+        <button type="submit" className="primary__btn">
+          Sign Up
+        </button>
       </form>
       <h5>
         Already have an account?{" "}
