@@ -26,7 +26,7 @@ function App() {
       <Switch>
         <Route path="/" exact component={Welcome} />
         {!checkUser && <Route path="/login" component={Login} />}
-        {!checkUser && <Route path="/done" component={Dk} />}
+        {checkUser && <Route path="/done" component={Dk} />}
         {!checkUser && <Route path="/sign-up" component={Signup} />}
         <Route path="" exact component={Errorpage} />
       </Switch>

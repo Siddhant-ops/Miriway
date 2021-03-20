@@ -15,6 +15,8 @@ const Welcome = () => {
   return (
     <Fragment>
       <h1>Welcome</h1>
+      {user && <h1>{user.uid}</h1>}
+
       <button
         onClick={() => {
           logout();
