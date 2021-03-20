@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { auth } from "../../Firebase-services/firebase-main";
+import { Link, useHistory } from "react-router-dom";
+import db, { auth } from "../../Firebase-services/firebase-main";
 import Logo from "../../Assets/Images/Miriway-small.svg";
 import "./Signup.scss";
 
 const Signup = () => {
+  const history = useHistory();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -53,13 +55,31 @@ const Signup = () => {
     Area === "" ||
     city === "" ||
     areaState === "" ||
-    role === "" ||
-    rate === "";
+    role === "";
 
-  const authSignup = () => {
-    auth
+  const authSignup = async () => {
+    await auth
       .createUserWithEmailAndPassword(email, password)
-      .then((res) => console.log(res))
+      .then((user) => {
+        if (user) {
+          var shopKeeper;
+          if (role.toLowerCase().startsWith("d")) {
+            shopKeeper = false;
+          } else {
+            shopKeeper = true;
+          }
+          db.collection("users").add({
+            name: name,
+            email: email,
+            area: Area,
+            city: city,
+            state: areaState,
+            shopkeeper: shopKeeper,
+            rate: rate,
+          });
+          history.push("/");
+        }
+      })
       .catch((err) => console.log(err));
   };
 
@@ -122,14 +142,21 @@ const Signup = () => {
           value={role}
           placeholder="Driver or Shop"
         />
+        {/* <div className="role">
+          <input type="radio" name="role" checked={console.log("Driver")} />
+          Driver
+          <input type="radio" name="role" checked={console.log("Shop")} />
+          Shop
+        </div> */}
         <input
           onChange={inputChange}
+          disabled={role.toLowerCase().startsWith("s")}
           type="text"
           name="rate"
           value={rate}
-          placeholder="Price / km"
+          placeholder="Driver Price / Km"
         />
-        <button type="submit" className="primary__btn">
+        <button type="submit" disabled={disableButton} className="primary__btn">
           Sign Up
         </button>
       </form>

@@ -1,0 +1,50 @@
+.RideCard {
+  margin: 1rem 0;
+  background: linear-gradient(103.03deg, #252a34 2.36%, #1e232c 93.36%), #282d37;
+  border-radius: 25px;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .top,
+  .bottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h5 {
+    margin-top: 2rem;
+  }
+
+  .bottom {
+    span {
+      font-size: 0.7rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 25px;
+      padding: 0.7rem 0.9rem;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      -ms-border-radius: 25px;
+      -o-border-radius: 25px;
+    }
+
+    button {
+      color: #ffffff;
+      border: none;
+      font-weight: 300;
+      outline: none;
+      padding: 0.7rem 0.9rem;
+      background: #26c77a;
+      border-radius: 1.5rem;
+      -webkit-border-radius: 1.5rem;
+      -moz-border-radius: 1.5rem;
+      -ms-border-radius: 1.5rem;
+      -o-border-radius: 1.5rem;
+    }
+  }
+}

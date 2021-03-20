@@ -1,29 +1,9 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { auth } from "../../Firebase-services/firebase-main";
+import { Fragment } from "react";
 
 const Welcome = () => {
-  const [user, setUser] = useState();
-
-  useEffect(() => {
-    auth.onAuthStateChanged((u) => setUser(u));
-  });
-
-  const logout = () => {
-    auth.signOut();
-  };
-
   return (
     <Fragment>
       <h1>Welcome</h1>
-      {user && <h1>{user.uid}</h1>}
-
-      <button
-        onClick={() => {
-          logout();
-        }}
-      >
-        Logout
-      </button>
     </Fragment>
   );
 };

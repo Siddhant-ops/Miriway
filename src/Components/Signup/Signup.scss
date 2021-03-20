@@ -17,6 +17,10 @@ $bg: #1e232c;
     align-items: center;
     flex-direction: column;
 
+    // .role {
+    //   width: 100%;
+    // }
+
     input {
       background-color: rgba($color: #ffffff, $alpha: 0.05);
       caret-color: #ffffff;
@@ -49,9 +53,8 @@ $bg: #1e232c;
       }
 
       button {
-        width: 100% ;
+        width: 100%;
       }
     }
-
   }
 }

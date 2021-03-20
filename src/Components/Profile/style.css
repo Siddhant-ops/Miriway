@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DM Sans', sans-serif;
+    color: #ffffff;
+}
+
+body {
+    background-color: #1E232C;
+}
+
+svg {
+    fill: #ffffff;
+    width: 2rem;
+    height: 2rem;
+}
+
+button {
+    border: none;
+    outline: none;
+}
+
+section {
+    height: 100vh;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+}
+
+span {
+    font-size: 0.7rem;
+    letter-spacing: 0.15rem;
+}
+
+.heading h2 {
+    font-size: 1.8rem;
+}
+
+.primary {
+    cursor: pointer;
+    background-color: #26C77A;
+    border-radius: 12px;
+    color: #ffffff;
+    width: 100%;
+    padding: 1rem;
+    text-transform: capitalize;
+}
+
+.secondary {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1rem;
+    width: 100%;
+}
+
+.icon {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card {
+    background: linear-gradient(103.03deg, #252A34 2.36%, #1A1D24 93.36%),
+        linear-gradient(0deg, #282D37, #282D37);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    border-radius: 25px;
+}
+
+.card h1 {
+    font-size: 3rem;
+    margin: 0.5rem 0;
+}
+
+.card h3 {
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.buttons {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+    section {
+        column-gap: 1rem;
+        display: grid;
+        grid-template: 'one two'
+            'three none';
+    }
+    .buttons{
+        transform: translateY(-150%);
+        justify-content: center;
+        row-gap: 1rem;
+        width: 50%;
+    }
+    .card{
+        height: 55%;
+    }
+}

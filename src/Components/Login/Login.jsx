@@ -23,7 +23,7 @@ const Login = () => {
       .signInWithEmailAndPassword(email, password)
       .then((user) => {
         if (user) {
-          history.push("/done");
+          history.push("/");
         }
       })
       .catch((err) => console.log("err", err));
